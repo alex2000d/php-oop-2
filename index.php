@@ -1,52 +1,13 @@
 <?php
-  // creo la mia classe articolo che sarà la mia classe padre 
-class Articolo {
-    public $titolo;
-    public $prezzo;
 
-    public function __construct($_titolo, $_prezzo) {
-        $this->titolo = $_titolo;
-        $this->prezzo = $_prezzo;
-    }
-}
-
-// creo la mia classe categoria 
-class Categoria {
-    public $nome;
-    public $icona;
-
-    public function __construct($nome, $icona) {
-        $this->nome = $nome;
-        $this->icona = $icona;
-    }
-}
-// creo la classe tipo di articolo
-class TipoArticolo {
-    public $nome;
-
-    public function __construct($nome) {
-        $this->nome = $nome;
-    }
-}
-
-// Creo la mia classe prodotto che sara figlia di articolo ed erediterà qualcosa dal padre
-class Prodotto extends Articolo {
-    public $immagine;
-    public $categoria;
-    public $tipoArticolo;
-
-    public function __construct($titolo, $prezzo, $immagine, $categoria, $tipoArticolo) {
-        // Richiamo le proprietà del genitore 
-        parent::__construct($titolo, $prezzo); 
-        $this->immagine = $immagine;
-        $this->categoria = $categoria;
-        $this->tipoArticolo = $tipoArticolo;
-    }
-}
+require_once 'models/prodotto.php';
+require_once 'models/categoria.php';
+require_once 'models/tipoArticolo.php';
+require_once 'models/articolo.php';
 
 // Creo le mie categorie
-$categoriaCani = new Categoria("Cagnolini","cani");
-$categoriaGatti = new Categoria("Gattini","gatti");
+$categoriaCani = new Categoria("Cagnolini","Cani,");
+$categoriaGatti = new Categoria("Gattini","Gatti,");
 
 // Creo i tipi di articoli
 $tipoCibo = new TipoArticolo("Cibo");
@@ -88,7 +49,7 @@ $prodotti = [
     <div class="row mt-5">
         <?php foreach ($prodotti as $prodotto): ?>
             <div class="col-12 col-lg-4">
-                <div class="card">
+                <div class="card mb-5">
                     <img src="img/<?= $prodotto->immagine; ?>" class="card-img-top" alt="<?= $prodotto->titolo; ?>">
                     <div class="card-body">
                         <h5 class="card-title"><?= $prodotto->titolo; ?></h5>
