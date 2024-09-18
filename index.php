@@ -43,6 +43,25 @@ class Prodotto extends Articolo {
         $this->tipoArticolo = $tipoArticolo;
     }
 }
+
+// Creo le mie categorie
+$categoriaCani = new Categoria("Cani", 'https://fontawesome.com/icons/dog?f=classic&s=solid');
+$categoriaGatti = new Categoria("Gatti", "https://fontawesome.com/icons/cat?f=classic&s=solid");
+
+// Creo i tipi di articoli
+$tipoCibo = new TipoArticolo("Cibo");
+$tipoGioco = new TipoArticolo("Gioco");
+$tipoCuccia = new TipoArticolo("Cuccia");
+
+// creo le istanze
+$prodotto1 = new Prodotto("Crocchette per Cani", 25.99, "crocchette_cani.jpg", $categoriaCani, $tipoCibo);
+$prodotto2 = new Prodotto("Palla per Gatti", 10.50, "palla_gatti.jpg", $categoriaGatti, $tipoGioco);
+
+// visualizzo i miei prodotti a schermo
+var_dump($prodotto1);
+var_dump($prodotto2);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -50,6 +69,7 @@ class Prodotto extends Articolo {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
 <body>
